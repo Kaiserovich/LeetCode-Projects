@@ -65,6 +65,7 @@ namespace ConsoleApp1.Tests
             };
             Assert.AreEqual(expected, Kata.FloodFill(testMassiv,0,0,1));
         }
+
         [TestMethod]
         public void FizzBuzzTests()
         {
