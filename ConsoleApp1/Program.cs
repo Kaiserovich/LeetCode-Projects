@@ -16,13 +16,6 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            int[][] numbers = {
-                new int[] { 1, 1, 1 },
-                new int[] { 1, 0, 1 },
-
-            };
-
-            Console.WriteLine(FloodFill(numbers, 0,0,2));
             Console.ReadKey();
         }
         
