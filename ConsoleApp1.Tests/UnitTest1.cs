@@ -53,6 +53,19 @@ namespace ConsoleApp1.Tests
             Assert.AreEqual(true, r);
         }
         [TestMethod]
+        public void FloodFillTest()
+        {
+            int[][] expected = {
+                new int[] { 1, 1, 1 },
+                new int[] { 1, 0, 1 },
+            };
+            int[][] testMassiv = {
+                new int[] { 2, 2, 2 },
+                new int[] { 2, 0, 2 },
+            };
+            Assert.AreEqual(expected, Kata.FloodFill(testMassiv,0,0,1));
+        }
+        [TestMethod]
         public void FizzBuzzTests()
         {
             List<string> expected = new() { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"};
