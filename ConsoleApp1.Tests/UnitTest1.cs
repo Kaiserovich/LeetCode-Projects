@@ -58,6 +58,11 @@ namespace ConsoleApp1.Tests
             List<string> expected = new() { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"};
             Assert.AreEqual(expected, Kata.FizzBuzz(15));
         }
+        public void FizzBuzzTests2()
+        {
+            List<string> expected = new() { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz" };
+            Assert.AreEqual(expected, Kata.FizzBuzz(15));
+        }
     }
     [TestClass]
     public class PositiveSumTests
