@@ -18,8 +18,18 @@ namespace ConsoleApp1
         {
             Console.ReadKey();
         }
-        public static double[] ConvertTemperatureBranch(double celsius) =>
-            new[] { celsius + 275.15, celsius * 1.80 + 32.00 };
+
+        public static int StrCount(string str, char letter)
+        {
+            int countLetter = 0;
+            foreach (char letStr in str)
+            {
+                if (letStr == letter)
+                    countLetter++;
+            }
+            return countLetter;
+        }
+
         public static int[][] FloodFill(int[][] image, int sr, int sc, int color)
         {
             int hieght = image.Length;

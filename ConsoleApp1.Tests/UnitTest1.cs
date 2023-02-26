@@ -45,6 +45,13 @@ namespace ConsoleApp1.Tests
             Assert.AreEqual(false, Kata.IsSquare(26), "26 isn't a square number");
         }
         [TestMethod]
+        public void StrCountTests()
+        {
+            Assert.AreEqual(1, Kata.StrCount("Hello",'o' )) ;
+            Assert.AreEqual(2, Kata.StrCount("Hello", 'l')) ;
+            Assert.AreEqual(0, Kata.StrCount("",'z'));
+        }
+        [TestMethod]
         public void CompTests()
         {
             int[] a = new int[] { 121, 144, 19, 161, 19, 144, 19, 11 };
