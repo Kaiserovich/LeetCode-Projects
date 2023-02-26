@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ConsoleApp1
+namespace PracticeConsoleApp
 {
     public static partial class Kata
     {

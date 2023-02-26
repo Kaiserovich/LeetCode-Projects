@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ConsoleApp1;
+using PracticeConsoleApp;
 
-namespace ConsoleApp1.Tests
+namespace PracticeConsoleApp.Tests
 {
     [TestClass]
     public class UnitTest1
