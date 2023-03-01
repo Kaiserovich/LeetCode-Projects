@@ -10,6 +10,34 @@ namespace PracticeConsoleApp.Tests
     public class KataTests
     {
         [TestMethod]
+        public void XorBasicTests()
+        {
+            testing(Kata.Xor(false, false), false);
+            testing(Kata.Xor(true, false), true);
+            testing(Kata.Xor(false, true), true);
+            testing(Kata.Xor(true, true), false);
+        }
+
+        [TestMethod]
+        public void XorNestedTests()
+        {
+            testing(Kata.Xor(false, Kata.Xor(false, false)), false);
+            testing(Kata.Xor(Kata.Xor(true, false), false), true);
+            testing(Kata.Xor(Kata.Xor(true, true), false), false);
+            testing(Kata.Xor(true, Kata.Xor(true, true)), true);
+            testing(Kata.Xor(Kata.Xor(false, false), Kata.Xor(false, false)), false);
+            testing(Kata.Xor(Kata.Xor(false, false), Kata.Xor(false, true)), true);
+            testing(Kata.Xor(Kata.Xor(true, false), Kata.Xor(false, false)), true);
+            testing(Kata.Xor(Kata.Xor(true, false), Kata.Xor(true, false)), false);
+            testing(Kata.Xor(Kata.Xor(true, true), Kata.Xor(true, false)), true);
+            testing(Kata.Xor(Kata.Xor(true, Kata.Xor(true, true)), Kata.Xor(Kata.Xor(true, true), false)), true);
+        }
+
+        private static void testing(bool actual, bool expected)
+        {
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
         public void AddBinary_1and2_11returned()
         {
             Assert.AreEqual("11", Kata.AddBinary(1, 2), "Should return \"11\" for 1 + 2");
