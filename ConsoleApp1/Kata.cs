@@ -9,7 +9,7 @@ namespace PracticeConsoleApp
     public static partial class Kata
     {
         public static int CountSheeps(bool[] sheeps) => sheeps.Count(x => x);
-        public static bool Xor(bool a, bool b) => ((a == true || b == true) && a != b) ? true : false;
+        public static bool Xor(bool a, bool b) => a != b;
         public static int PositiveSum(int[] arr) =>
             arr.Where(x => x > 0).Sum();
         public static int GetGoals(int laLigaGoals, int copaDelReyGoals, int championsLeagueGoals) =>
