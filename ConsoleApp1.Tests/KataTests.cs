@@ -10,6 +10,21 @@ namespace PracticeConsoleApp.Tests
     public class KataTests
     {
         [TestMethod]
+        public void ShouldReturnFalse()
+        {
+            Assert.AreEqual(true, Kata.IsCube(1, 1));
+            Assert.AreEqual(true, Kata.IsCube(8, 2));
+        }
+        [TestMethod]
+        public void ShouldReturnTrue()
+        {
+            Assert.AreEqual(false, Kata.IsCube(2, 1));
+            Assert.AreEqual(false, Kata.IsCube(6, 3));
+            Assert.AreEqual(false, Kata.IsCube(-8, -2));
+            Assert.AreEqual(false, Kata.IsCube(0, 0));
+            Assert.AreEqual(false, Kata.IsCube(200, 4));
+        }
+        [TestMethod]
         public void XorBasicTests()
         {
             testing(Kata.Xor(false, false), false);

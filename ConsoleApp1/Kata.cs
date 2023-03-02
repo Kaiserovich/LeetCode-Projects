@@ -8,6 +8,7 @@ namespace PracticeConsoleApp
 {
     public static partial class Kata
     {
+        public static bool IsCube(double volume, double side) => Math.Pow(volume, 1.0 / 3) == side && side > 0;
         public static int CountSheeps(bool[] sheeps) => sheeps.Count(x => x);
         public static bool Xor(bool a, bool b) => a != b;
         public static int PositiveSum(int[] arr) =>
