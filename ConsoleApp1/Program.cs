@@ -17,6 +17,18 @@ namespace PracticeConsoleApp
         {
             Console.ReadKey();
         }
-    }
+        public static int SubarraySum(int[] nums, int k)
+        {
+            int subArrays = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int subArraySum = 0;
+                for (int j = i; j < nums.Length; j++)
+                    subArraySum += nums[j];
+                    if (subArraySum == k)
+                        subArrays++;
+            }
+            return subArrays;
+        }
 }
 
