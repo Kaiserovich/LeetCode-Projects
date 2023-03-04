@@ -118,6 +118,19 @@ namespace PracticeConsoleApp.Tests
             };
             Assert.AreEqual(expected, Kata.FloodFill(testMassiv, 0, 0, 1));
         }
+        [DataTestMethod]
+        [DataRow(10, 2, true)]
+        [DataRow(63, 7, true)]
+        [DataRow(2450, 5, true)]
+        [DataRow(24612, 3, true)]
+        [DataRow(9, 2, false)]
+        [DataRow(653, 7, false)]
+        [DataRow(2453, 5, false)]
+        [DataRow(24617, 3, false)]
+        public void CheckForFactorTest(int num, int factor, bool isFactor)
+        {
+            Assert.AreEqual(isFactor, Kata.CheckForFactor(num, factor));
+        }
         [TestMethod]
         public void FizzBuzzTests()
         {
