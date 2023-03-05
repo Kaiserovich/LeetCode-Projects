@@ -10,7 +10,13 @@ namespace PracticeConsoleApp.Tests
     public class KataTests
     {
         [TestMethod]
-        public void ShouldReturnFalse()
+        public void ChromosomeCheckTests()
+        {
+            Assert.AreEqual("Congratulations! You're going to have a son.", Kata.ChromosomeCheck("XY"));
+            Assert.AreEqual("Congratulations! You're going to have a daughter.", Kata.ChromosomeCheck("XX"));
+        }
+        [TestMethod]
+        public void IsCubeTestsShouldReturnFalse()
         {
             Assert.AreEqual(true, Kata.IsCube(1, 1));
             Assert.AreEqual(true, Kata.IsCube(8, 2));

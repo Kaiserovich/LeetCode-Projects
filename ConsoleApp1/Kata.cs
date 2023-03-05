@@ -8,6 +8,8 @@ namespace PracticeConsoleApp
 {
     public static partial class Kata
     {
+        public static string ChromosomeCheck(string sperm) =>
+            sperm == "XX" ? "Congratulations! You're going to have a daughter." : "Congratulations! You're going to have a son.";
         public static bool CheckForFactor(int num, int factor) => num % factor == 0;
         public static bool IsCube(double volume, double side) => Math.Pow(volume, 1.0 / 3) == side && side > 0;
         public static int CountSheeps(bool[] sheeps) => sheeps.Count(x => x);
