@@ -25,10 +25,11 @@ namespace PracticeConsoleApp
                 int subArraySum = 0;
                 for (int j = i; j < nums.Length; j++)
                     subArraySum += nums[j];
-                    if (subArraySum == k)
-                        subArrays++;
+                if (subArraySum == k)
+                    subArrays++;
             }
             return subArrays;
         }
+    }
 }
 
