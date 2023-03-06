@@ -8,6 +8,26 @@ namespace PracticeConsoleApp
 {
     public static partial class Kata
     {
+        public class Animal
+        {
+            public string name;
+            public Animal(string name)
+            {            }
+            public virtual string Speak()
+            {
+                return name;
+            }
+        }
+        public class Cat : Animal
+        {
+            public Cat(string name) : base(name)
+            {            }
+            public override string Speak()
+            {
+                return name + " meows.";
+            }
+
+        }
         public static bool IsCube(double volume, double side) => Math.Pow(volume, 1.0 / 3) == side && side > 0;
         public static int CountSheeps(bool[] sheeps) => sheeps.Count(x => x);
         public static bool Xor(bool a, bool b) => a != b;

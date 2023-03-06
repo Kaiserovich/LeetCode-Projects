@@ -3,12 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static PracticeConsoleApp.Kata;
 
 namespace PracticeConsoleApp.Tests
 {
     [TestClass]
     public class KataTests
     {
+        [TestMethod]
+        public void Test()
+        {
+            Cat cat = new Cat("Mr Whiskers");
+            Assert.AreEqual("Mr Whiskers meows.", cat.Speak());
+
+            cat = new Cat("Lamp");
+            Assert.AreEqual("Lamp meows.", cat.Speak());
+
+            cat = new Cat("$$Money Bags$$");
+            Assert.AreEqual("$$Money Bags$$ meows.", cat.Speak());
+        }
         [TestMethod]
         public void ShouldReturnFalse()
         {
