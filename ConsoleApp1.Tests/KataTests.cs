@@ -138,17 +138,23 @@ namespace PracticeConsoleApp.Tests
             Assert.AreEqual(expected, Kata.FloodFill(testMassiv, 0, 0, 1));
         }
         [DataTestMethod]
-        [DataRow(10, 2, true)]
-        [DataRow(63, 7, true)]
-        [DataRow(2450, 5, true)]
-        [DataRow(24612, 3, true)]
-        [DataRow(9, 2, false)]
-        [DataRow(653, 7, false)]
-        [DataRow(2453, 5, false)]
-        [DataRow(24617, 3, false)]
-        public void CheckForFactorTest(int num, int factor, bool isFactor)
+        [DataRow(12, 4, 3, "n = 12, x = 3, y = 4", true)]
+        [DataRow(3, 3, 4, "n = 3, x = 3, y = 4", false)]
+        [DataRow(8, 3, 4, "n = 8, x = 3, y = 4", false)]
+        public void IsDivisibleTests(int n,int x,int y, string message, bool isFactor)
         {
-            Assert.AreEqual(isFactor, Kata.CheckForFactor(num, factor));
+            Assert.AreEqual(isFactor, Kata.IsDivisible(n, x, y), message);
+        }
+
+        [TestMethod]
+        public void Test2()
+        {
+            Assert.AreEqual(false, Kata.IsDivisible(3, 3, 4), "n = 3, x = 3, y = 4");
+        }
+        [TestMethod]
+        public void Test3()
+        {
+            Assert.AreEqual(false, Kata.IsDivisible(8, 3, 4), "n = 8, x = 3, y = 4");
         }
         [TestMethod]
         public void FizzBuzzTests()
