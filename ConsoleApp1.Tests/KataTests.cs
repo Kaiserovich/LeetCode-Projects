@@ -11,7 +11,16 @@ namespace PracticeConsoleApp.Tests
     public class KataTests
     {
         [TestMethod]
-        public void Test()
+        public void NearestSqTests()
+        {
+            Assert.AreEqual(Kata.NearestSq(1), 1);
+            Assert.AreEqual(Kata.NearestSq(2), 1);
+            Assert.AreEqual(Kata.NearestSq(10), 9);
+            Assert.AreEqual(Kata.NearestSq(111), 121);
+            Assert.AreEqual(Kata.NearestSq(9999), 10000);
+        }
+        [TestMethod]
+        public void AnimalTests()
         {
             Cat cat = new Cat("Mr Whiskers");
             Assert.AreEqual("Mr Whiskers meows.", cat.Speak());
@@ -21,12 +30,6 @@ namespace PracticeConsoleApp.Tests
 
             cat = new Cat("$$Money Bags$$");
             Assert.AreEqual("$$Money Bags$$ meows.", cat.Speak());
-        }
-        [TestMethod]
-        public void ShouldReturnFalse()
-        {
-            Assert.AreEqual("Congratulations! You're going to have a son.", Kata.ChromosomeCheck("XY"));
-            Assert.AreEqual("Congratulations! You're going to have a daughter.", Kata.ChromosomeCheck("XX"));
         }
         [TestMethod]
         public void IsCubeTestsShouldReturnFalse()

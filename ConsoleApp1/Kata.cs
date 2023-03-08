@@ -8,6 +8,7 @@ namespace PracticeConsoleApp
 {
     public static partial class Kata
     {
+        public static int NearestSq(int n) => (int)Math.Pow(Math.Round(Math.Sqrt(n)), 2);
         public static bool IsDivisible(int n, int x, int y) => n % x == 0 && n % y == 0;
         public class Animal
         {
