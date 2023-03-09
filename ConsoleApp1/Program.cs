@@ -15,6 +15,11 @@ namespace PracticeConsoleApp
     {
         static void Main(string[] args)
         {
+            int[][] testMassiv = {
+                new int[] { 2, 2, 2 },
+                new int[] { 2, 0, 2 },
+            };
+            Kata.FloodFill(testMassiv, 0, 0, 1);
             Console.ReadKey();
         }
     }

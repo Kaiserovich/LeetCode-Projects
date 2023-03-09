@@ -10,17 +10,6 @@ namespace PracticeConsoleApp
     {
         public static int NearestSq(int n) => (int)Math.Pow(Math.Round(Math.Sqrt(n)), 2);
         public static bool IsDivisible(int n, int x, int y) => n % x == 0 && n % y == 0;
-        public class Animal
-        {
-            public string name;
-            public Animal(string name){}
-            public virtual string Speak() => name;
-        }
-        public class Cat : Animal
-        {
-            public Cat(string name) : base(name){}
-            public override string Speak() => name + " meows.";
-        }
         public static bool IsCube(double volume, double side) => Math.Pow(volume, 1.0 / 3) == side && side > 0;
         public static int CountSheeps(bool[] sheeps) => sheeps.Count(x => x);
         public static bool Xor(bool a, bool b) => a != b;

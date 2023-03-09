@@ -20,18 +20,6 @@ namespace PracticeConsoleApp.Tests
             Assert.AreEqual(Kata.NearestSq(9999), 10000);
         }
         [TestMethod]
-        public void AnimalTests()
-        {
-            Cat cat = new Cat("Mr Whiskers");
-            Assert.AreEqual("Mr Whiskers meows.", cat.Speak());
-
-            cat = new Cat("Lamp");
-            Assert.AreEqual("Lamp meows.", cat.Speak());
-
-            cat = new Cat("$$Money Bags$$");
-            Assert.AreEqual("$$Money Bags$$ meows.", cat.Speak());
-        }
-        [TestMethod]
         public void IsCubeTestsShouldReturnFalse()
         {
             Assert.AreEqual(true, Kata.IsCube(1, 1));
@@ -49,38 +37,31 @@ namespace PracticeConsoleApp.Tests
         [TestMethod]
         public void XorBasicTests()
         {
-            testing(Kata.Xor(false, false), false);
-            testing(Kata.Xor(true, false), true);
-            testing(Kata.Xor(false, true), true);
-            testing(Kata.Xor(true, true), false);
+            Assert.AreEqual(Kata.Xor(false, false), false);
+            Assert.AreEqual(Kata.Xor(true, false), true);
+            Assert.AreEqual(Kata.Xor(false, true), true);
+            Assert.AreEqual(Kata.Xor(true, true), false);
         }
-
         [TestMethod]
         public void XorNestedTests()
         {
-            testing(Kata.Xor(false, Kata.Xor(false, false)), false);
-            testing(Kata.Xor(Kata.Xor(true, false), false), true);
-            testing(Kata.Xor(Kata.Xor(true, true), false), false);
-            testing(Kata.Xor(true, Kata.Xor(true, true)), true);
-            testing(Kata.Xor(Kata.Xor(false, false), Kata.Xor(false, false)), false);
-            testing(Kata.Xor(Kata.Xor(false, false), Kata.Xor(false, true)), true);
-            testing(Kata.Xor(Kata.Xor(true, false), Kata.Xor(false, false)), true);
-            testing(Kata.Xor(Kata.Xor(true, false), Kata.Xor(true, false)), false);
-            testing(Kata.Xor(Kata.Xor(true, true), Kata.Xor(true, false)), true);
-            testing(Kata.Xor(Kata.Xor(true, Kata.Xor(true, true)), Kata.Xor(Kata.Xor(true, true), false)), true);
-        }
-
-        private static void testing(bool actual, bool expected)
-        {
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(Kata.Xor(false, Kata.Xor(false, false)), false);
+            Assert.AreEqual(Kata.Xor(Kata.Xor(true, false), false), true);
+            Assert.AreEqual(Kata.Xor(Kata.Xor(true, true), false), false);
+            Assert.AreEqual(Kata.Xor(true, Kata.Xor(true, true)), true);
+            Assert.AreEqual(Kata.Xor(Kata.Xor(false, false), Kata.Xor(false, false)), false);
+            Assert.AreEqual(Kata.Xor(Kata.Xor(false, false), Kata.Xor(false, true)), true);
+            Assert.AreEqual(Kata.Xor(Kata.Xor(true, false), Kata.Xor(false, false)), true);
+            Assert.AreEqual(Kata.Xor(Kata.Xor(true, false), Kata.Xor(true, false)), false);
+            Assert.AreEqual(Kata.Xor(Kata.Xor(true, true), Kata.Xor(true, false)), true);
+            Assert.AreEqual(Kata.Xor(Kata.Xor(true, Kata.Xor(true, true)), Kata.Xor(Kata.Xor(true, true), false)), true);
         }
         [TestMethod]
         public void AddBinary_1and2_11returned()
         {
             Assert.AreEqual("11", Kata.AddBinary(1, 2), "Should return \"11\" for 1 + 2");
         }
-
-        [TestMethod()]
+        [TestMethod]
         public void ValidatePin_1111_trueReturned()
         {
             Assert.AreEqual(true, Kata.ValidatePin("1111"));
@@ -148,25 +129,8 @@ namespace PracticeConsoleApp.Tests
         {
             Assert.AreEqual(isFactor, Kata.IsDivisible(n, x, y), message);
         }
-
         [TestMethod]
-        public void Test2()
-        {
-            Assert.AreEqual(false, Kata.IsDivisible(3, 3, 4), "n = 3, x = 3, y = 4");
-        }
-        [TestMethod]
-        public void Test3()
-        {
-            Assert.AreEqual(false, Kata.IsDivisible(8, 3, 4), "n = 8, x = 3, y = 4");
-        }
-        [TestMethod]
-        public void FizzBuzzTests()
-        {
-            List<string> expected = new() { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz" };
-            Assert.AreEqual(expected, Kata.FizzBuzz(15));
-        }
-        [TestMethod]
-        public void SampleTest()
+        public void CountSheepsTest()
         {
             var sheeps = new bool[] { true, false, true };
 
