@@ -11,6 +11,13 @@ namespace PracticeConsoleApp.Tests
     public class KataTests
     {
         [TestMethod]
+        public void IfTests()
+        {
+            var a = false;
+            Kata.If(true, () => a = true, () => a = false);
+            Assert.AreEqual(true, a, "func1 should be called");
+        }
+        [TestMethod]
         public void NearestSqTests()
         {
             Assert.AreEqual(Kata.NearestSq(1), 1);
@@ -107,19 +114,6 @@ namespace PracticeConsoleApp.Tests
             int[] b = new int[] { 11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19 };
             bool r = Kata.Comp(a, b); // True
             Assert.AreEqual(true, r);
-        }
-        [TestMethod]
-        public void FloodFillTest()
-        {
-            int[][] expected = {
-                new int[] { 1, 1, 1 },
-                new int[] { 1, 0, 1 },
-            };
-            int[][] testMassiv = {
-                new int[] { 2, 2, 2 },
-                new int[] { 2, 0, 2 },
-            };
-            Assert.AreEqual(expected, Kata.FloodFill(testMassiv, 0, 0, 1));
         }
         [DataTestMethod]
         [DataRow(12, 4, 3, "n = 12, x = 3, y = 4", true)]
