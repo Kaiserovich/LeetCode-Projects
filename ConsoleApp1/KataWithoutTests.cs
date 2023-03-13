@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,8 @@ namespace PracticeConsoleApp
 {
     public static class KataWithoutTests
     {
+        public static BigInteger[] PowersOfTwo(int n) => Enumerable.Range(0, n + 1).Select(x => BigInteger.Pow(2,x)).ToArray();
+
         public static int Search(int[] nums, int target)
         {
             if (nums == null)
