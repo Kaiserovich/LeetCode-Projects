@@ -17,29 +17,27 @@ namespace PracticeConsoleApp.Tests
             Kata.If(true, () => a = true, () => a = false);
             Assert.AreEqual(true, a, "func1 should be called");
         }
-        [TestMethod]
-        public void NearestSqTests()
+        [DataTestMethod]
+        [DataRow(1, 1)]
+        [DataRow(2, 1)]
+        [DataRow(10, 9)]
+        [DataRow(111, 121)]
+        [DataRow(9999, 10000)]
+        public void NearestSqTests(int expected, int actual)
         {
-            Assert.AreEqual(Kata.NearestSq(1), 1);
-            Assert.AreEqual(Kata.NearestSq(2), 1);
-            Assert.AreEqual(Kata.NearestSq(10), 9);
-            Assert.AreEqual(Kata.NearestSq(111), 121);
-            Assert.AreEqual(Kata.NearestSq(9999), 10000);
+            Assert.AreEqual(Kata.NearestSq(expected), actual);
         }
-        [TestMethod]
-        public void IsCubeTestsShouldReturnFalse()
+        [DataTestMethod]
+        [DataRow(true, 1, 1)]
+        [DataRow(true, 8, 2)]
+        [DataRow(false, 2, 1)]
+        [DataRow(false, 6, 3)]
+        [DataRow(false, -8, -2)]
+        [DataRow(false, 0, 0)]
+        [DataRow(false, 200, 4)]
+        public void IsCubeTests(bool expected, double volume, double side)
         {
-            Assert.AreEqual(true, Kata.IsCube(1, 1));
-            Assert.AreEqual(true, Kata.IsCube(8, 2));
-        }
-        [TestMethod]
-        public void ShouldReturnTrue()
-        {
-            Assert.AreEqual(false, Kata.IsCube(2, 1));
-            Assert.AreEqual(false, Kata.IsCube(6, 3));
-            Assert.AreEqual(false, Kata.IsCube(-8, -2));
-            Assert.AreEqual(false, Kata.IsCube(0, 0));
-            Assert.AreEqual(false, Kata.IsCube(200, 4));
+            Assert.AreEqual(expected, Kata.IsCube(volume, side));
         }
         [TestMethod]
         public void XorBasicTests()

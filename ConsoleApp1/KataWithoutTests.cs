@@ -10,7 +10,6 @@ namespace PracticeConsoleApp
     public static class KataWithoutTests
     {
         public static BigInteger[] PowersOfTwo(int n) => Enumerable.Range(0, n + 1).Select(x => BigInteger.Pow(2,x)).ToArray();
-
         public static int Search(int[] nums, int target)
         {
             if (nums == null)
@@ -22,7 +21,6 @@ namespace PracticeConsoleApp
             }
             return -1;
         }
-
         public static double[] ConvertTemperature(double celsius) =>
              new[] { celsius + 275.15, celsius * 1.80 + 32.00 };
         public static int MaxDistance(int[][] grid)
@@ -30,39 +28,23 @@ namespace PracticeConsoleApp
             int maxDistance = -1;
 
             for (int i = 0; i < grid.Length; i++)
-            {
                 for (int j = 0; j < grid[i].Length; j++)
-                {
                     if (grid[i][j] == 0)
                     {
                         int minDistanceLocal = int.MaxValue;
                         for (int k = 0; k < grid.Length; k++)
-                        {
                             for (int m = 0; m < grid[k].Length; m++)
-                            {
                                 if (grid[k][m] == 1)
-                                {
                                     minDistanceLocal = Math.Min(minDistanceLocal, Math.Abs(i - k) + Math.Abs(j - m));
-                                    /*if (minDistanceLocal == 1)
-                                        return minDistanceLocal;*/
-
-                                }
-                            }
-
-                        }
                         if (minDistanceLocal != int.MaxValue)
                             maxDistance = Math.Max(maxDistance, minDistanceLocal);
                     }
-                }
-            }
-
             return maxDistance;
         }
         public static int[] GetConcatenation(int[] nums)
         {
             return nums.Concat(nums).ToArray();
         }
-
         public static bool IsSubsequence(string str1, string str2)
         {
             if (str1 == string.Empty)
@@ -128,13 +110,9 @@ namespace PracticeConsoleApp
         {
             int max = int.MinValue;
             foreach (int[] account in accounts)
-            {
                 max = Math.Max(account.Sum(), max);
-            }
             return max;
         }
-
-
         public static int DescendingOrder(int num) =>
             int.Parse(string.Concat(num.ToString().OrderByDescending(i => int.Parse(i.ToString()))));
         public static string Likes(string[] name)
@@ -148,10 +126,8 @@ namespace PracticeConsoleApp
                 default: return $"{name[0]}, {name[1]} and {name.Length - 2} others like this";
             }
         }
-
         public static string FindNeedle(object[] haystack) =>
             "found the needle at position " + Array.IndexOf(haystack, "needle");
-
         public static int TwiceAsOld(int dadYears, int sonYears) =>
             Math.Abs(sonYears * 2 - dadYears);
     }
