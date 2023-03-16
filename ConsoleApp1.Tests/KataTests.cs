@@ -98,19 +98,21 @@ namespace PracticeConsoleApp.Tests
             Assert.AreEqual(true, Kata.IsSquare(25), "25 is a square number");
             Assert.AreEqual(false, Kata.IsSquare(26), "26 isn't a square number");
         }
-        [TestMethod]
-        public void StrCountTests()
+        [DataTestMethod]
+        [DataRow(1 ,"Hello", 'o')]
+        [DataRow(2, "Hello", 'l')]
+        [DataRow(0, "", 'z')]
+        public void StrCountTests(int expected, string str, char letter)
         {
-            Assert.AreEqual(1, Kata.StrCount("Hello", 'o'));
-            Assert.AreEqual(2, Kata.StrCount("Hello", 'l'));
-            Assert.AreEqual(0, Kata.StrCount("", 'z'));
+            Assert.AreEqual(expected, Kata.StrCount(str, letter));
+
         }
         [TestMethod]
         public void CompTests()
         {
             int[] a = new int[] { 121, 144, 19, 161, 19, 144, 19, 11 };
             int[] b = new int[] { 11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19 };
-            bool r = Kata.Comp(a, b); // True
+            bool r = Kata.Comp(a, b);
             Assert.AreEqual(true, r);
         }
         [DataTestMethod]
