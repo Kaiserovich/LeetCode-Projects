@@ -8,6 +8,7 @@ namespace PracticeConsoleApp
 {
     public static partial class Kata
     {
+        public static int OtherAngle(int a, int b) => 180 - a - b;
         public static string NoSpace(string input) => input.Replace(" ", "");
         public static void If(bool c, Action f1, Action f2) => (c == true ? f1 : f2)();
         public static int NearestSq(int n) => (int)Math.Pow(Math.Round(Math.Sqrt(n)), 2);

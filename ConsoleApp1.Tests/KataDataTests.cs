@@ -10,6 +10,15 @@ namespace PracticeConsoleApp.Tests
     public class KataDataTests
     {
         [DataTestMethod]
+        [DataRow(30,60,90)]
+        [DataRow(60,60,60)]
+        [DataRow(43,78,59)]
+        [DataRow(10,20,150)]
+        public void OtherAngleTests(int a, int b, int actual)
+        {
+            Assert.AreEqual(Kata.OtherAngle(a, b), actual);
+        }
+        [DataTestMethod]
         [DataRow(1, "Hello", 'o')]
         [DataRow(2, "Hello", 'l')]
         [DataRow(0, "", 'z')]
