@@ -31,5 +31,13 @@ namespace PracticeConsoleApp.Tests
         [DataRow(8, 3, 4, "n = 8, x = 3, y = 4", false)]
         public void IsDivisibleTests(int n, int x, int y, string message, bool isFactor) =>
             Assert.AreEqual(isFactor, Kata.IsDivisible(n, x, y), message);
+
+        [DataTestMethod]
+        [DataRow(2, new int[] { 2, 2, 2, 2 })]
+        [DataRow(7, new int[] { 5, 10 })]
+        public void GetAverageTests(int expected, int[] mask)
+        {
+            Assert.AreEqual(expected, Kata.GetAverage(mask));
+        }
     }
 }
