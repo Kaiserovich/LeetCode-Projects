@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tinkoff.cs" />
     <Compile Include="Kata.cs" />
     <Compile Include="KataWithoutTests.cs" />
     <Compile Include="Program.cs" />
