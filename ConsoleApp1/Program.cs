@@ -15,6 +15,8 @@ namespace PracticeConsoleApp
     {
         static void Main(string[] args)
         {
+            MyClass myClass = new MyClass();
+            myClass.Search("0");
             Console.ReadKey();
         }
     }
