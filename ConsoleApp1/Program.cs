@@ -1,7 +1,6 @@
 ﻿using System;
-using System.CodeDom.Compiler;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
@@ -15,10 +14,9 @@ namespace PracticeConsoleApp
     {
         static void Main(string[] args)
         {
-            MyClass myClass = new MyClass();
-            myClass.Search("0");
             Console.ReadKey();
         }
     }
+
 }
 

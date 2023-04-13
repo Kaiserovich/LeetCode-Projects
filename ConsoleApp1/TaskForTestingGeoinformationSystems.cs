@@ -5,7 +5,6 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace PracticeConsoleApp
 {
-
     public interface INode
     {
         /// <summary>
@@ -45,7 +44,6 @@ namespace PracticeConsoleApp
         /// </summary>
         bool IsVisibile { get; set; }
     }
-
     public class Node : INode
     {
         public VarietyNode Variety { get; set; }
@@ -80,32 +78,27 @@ namespace PracticeConsoleApp
             for (int i = 0; i < listCount; i++)
             {
                 INode[] nodes = new INode[nodeCount];
-                for (int j = nodeCount-1; j >= 0; j--)
+                for (int j = nodeCount - 1; j >= 0; j--)
                 {
-                    if (j  == 0)
-                    {
+                    if (j == 0)
                         nodes[j] = new Node
                         {
                             Text = $"{i}{j}",
                             Nodes = new ObservableCollection<INode> { nodes[1], nodes[2] }
                         };
-                    }
+
                     else if (j == 2)
-                    {
                         nodes[j] = new Node
                         {
                             Text = $"{i}{j}",
-                            Nodes = new ObservableCollection<INode>{nodes[3]}
-                    };
-                    }
+                            Nodes = new ObservableCollection<INode> { nodes[3] }
+                        };
+
                     else
-                    {
                         nodes[j] = new Node
                         {
-                            Text = $"{i}{j}"
+                            Text = $"{i}{j} rtyrty"
                         };
-                    }
-                    
                 }
                 nodeList.Add(nodes.FirstOrDefault());
                 if (i % 2 == 1)
@@ -114,10 +107,8 @@ namespace PracticeConsoleApp
                     numberOfList++;
                     nodeList = new List<INode>();
                 }
-
             }
         }
-
         /// <summary>
         /// метод для поиска элемента
         /// </summary>
@@ -126,22 +117,36 @@ namespace PracticeConsoleApp
         {
             if (_CacheTree == null) return null;
 
-            int dictionarypPagesCount = _CacheTree.Count;
-            List<INode> nodeList;
-            List<INode> resultNodeList = new List<INode>();
+            List<INode> resultTreeList = new List<INode>();
+            List<INode> treeList = new List<INode>();
 
-            for (int pageNumber = 1; pageNumber <= dictionarypPagesCount; pageNumber++)
+            for (int pageNumber = 1; pageNumber <= _CacheTree.Count; pageNumber++)
             {
-                _CacheTree.TryGetValue(pageNumber, out nodeList);
+                _CacheTree.TryGetValue(pageNumber, out treeList);
 
-                int listCount = nodeList.Count;
-                nodeList.RemoveRange(0, 1);
-                for (int j = 0; j < listCount; j++)
+                for (int treeNumber = 0; treeNumber < treeList.Count; treeNumber++)
                 {
+                    Queue<INode> queueNode = new Queue<INode>();
+                    queueNode.Enqueue(treeList[treeNumber]);
+
+                    while (queueNode.Count != 0)
+                    {
+                        INode selectedNode = queueNode.Dequeue();
+
+                        if (selectedNode.Nodes != null)
+                            for (int childNodeNumber = 0; childNodeNumber < selectedNode.Nodes.Count; childNodeNumber++)
+                                queueNode.Enqueue(selectedNode.Nodes[childNodeNumber]);
+
+                        if (selectedNode.Text.ToLower().Contains(inputValue.ToLower()))
+                        {
+                            resultTreeList.Add(treeList[treeNumber]);
+                            break;
+                        }
+                    }
                 }
 
             }
-            return null;
+            return resultTreeList;
         }
     }
 
