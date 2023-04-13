@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Net.Http;
+using System.Threading;
 
 
 namespace PracticeConsoleApp
@@ -14,8 +10,10 @@ namespace PracticeConsoleApp
     {
         static void Main(string[] args)
         {
+            UrlCheckAsync(4, "https://www.fefe4igma.com/efefef&g?ddsd");
             Console.ReadKey();
         }
+
     }
 
 }
