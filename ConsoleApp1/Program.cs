@@ -10,7 +10,6 @@ namespace PracticeConsoleApp
     {
         static void Main(string[] args)
         {
-            UrlCheckAsync(4, "https://www.fefe4igma.com/efefef&g?ddsd");
             Console.ReadKey();
         }
 
