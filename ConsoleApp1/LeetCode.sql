@@ -24,3 +24,8 @@ order by employee_id;
 /*627. Swap Salary*/
 update Salary 
 set sex = case when sex like 'm' then 'f' else 'm' end
+
+/*196. Delete Duplicate Emails*/
+Delete p1 
+from Person p1, Person p2 
+where p1.email = p2.email and p1.id > p2.id
