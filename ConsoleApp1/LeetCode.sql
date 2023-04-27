@@ -12,9 +12,15 @@ select c.name as Customers from Customers c left join Orders o on c.id = o.custo
 
 /*1873. Calculate Special Bonus*/
 select employee_id,
-    case 
-        when name like 'M%' or employee_id %2 = 0 then 0
-        else salary
+    case when name like 'M%' or employee_id %2 = 0 then 0 else salary
     end as bonus
 from Employees
 order by employee_id;
+
+select employee_id, salary * (employee_id%2) * (name not like 'M%') as bonus
+from Employees
+order by employee_id;
+
+/*627. Swap Salary*/
+update Salary 
+set sex = case when sex like 'm' then 'f' else 'm' end
