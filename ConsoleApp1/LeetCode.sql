@@ -9,3 +9,12 @@ select name from Customer where referee_id <> 2 or referee_id is null
 
 /*183. Customers Who Never Order*/
 select c.name as Customers from Customers c left join Orders o on c.id = o.customerId where o.customerId is null
+
+/*1873. Calculate Special Bonus*/
+select employee_id,
+    case 
+        when name like 'M%' or employee_id %2 = 0 then 0
+        else salary
+    end as bonus
+from Employees
+order by employee_id;
