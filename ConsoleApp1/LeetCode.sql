@@ -29,3 +29,8 @@ set sex = case when sex like 'm' then 'f' else 'm' end
 Delete p1 
 from Person p1, Person p2 
 where p1.email = p2.email and p1.id > p2.id
+
+/*1667. Fix Names in a Table*/
+select user_id, concat(upper(substr(Users.name, 1, 1)), lower(substr(Users.name, 2))) as name
+from Users
+order by user_id asc
