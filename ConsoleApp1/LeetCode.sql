@@ -34,3 +34,5 @@ where p1.email = p2.email and p1.id > p2.id
 select user_id, concat(upper(substr(Users.name, 1, 1)), lower(substr(Users.name, 2))) as name
 from Users
 order by user_id asc
+
+/*1484. Group Sold Products By The Date*/
