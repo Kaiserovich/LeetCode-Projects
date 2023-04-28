@@ -17,6 +17,7 @@ select employee_id,
 from Employees
 order by employee_id;
 
+
 select employee_id, salary * (employee_id%2) * (name not like 'M%') as bonus
 from Employees
 order by employee_id;
@@ -54,8 +55,11 @@ as T
 where T.salary is null or T.name is null
 order by T.employee_id
 
+
 select employee_id from Employees where employee_id not in (select employee_id from Salaries)
+
 union
+
 select employee_id from Salaries where employee_id not in (select employee_id from Employees)
 order by employee_id
 
@@ -63,11 +67,44 @@ order by employee_id
 select product_id, 'store1' as store, store1 as price
 from Products
 where store1 is not null
+
 union
+
 select product_id, 'store2' as store, store2 as price
 from Products
 where store2 is not null
+
 union
+
 select product_id, 'store3' as store, store3 as price
 from Products
 where store3 is not null
+
+/*608. Tree Node*/
+select id, 
+    case
+        when p_id is null then 'Root'
+        when id in (select p_id from tree) then 'Inner'
+        else 'Leaf'
+    end as type
+from Tree
+
+
+select id, 'Root' as Type
+from Tree
+where p_id is null
+
+union
+
+select id, 'Inner' as Type
+from Tree
+where id in (select distinct p_id from Tree where p_id is not null)
+    and p_id is not null
+
+union
+
+select id, 'Leaf' as Type
+from Tree
+where id not in (select distinct p_id from Tree where p_id is not null)
+    and p_id is not null
+
