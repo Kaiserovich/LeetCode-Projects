@@ -43,3 +43,18 @@ order by sell_date
 
 /*1527. Patients With a Condition*/
 select * from Patients where conditions like 'DIAB1%' or conditions like '% DIAB1%'
+
+/*1965. Employees With Missing Information*/
+select T.employee_id
+from 
+  (select * from Employees left join Salaries using(employee_id)
+  union
+  select * from Employees right join Salaries using(employee_id))
+as T
+where T.salary is null or T.name is null
+order by T.employee_id
+
+select employee_id from Employees where employee_id not in (select employee_id from Salaries)
+union
+select employee_id from Salaries where employee_id not in (select employee_id from Employees)
+order by employee_id
