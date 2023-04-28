@@ -36,3 +36,10 @@ from Users
 order by user_id asc
 
 /*1484. Group Sold Products By The Date*/
+select sell_date, count(distinct product) as num_sold, group_concat(distinct product) as products
+from Activities
+group by sell_date 
+order by sell_date
+
+/*1527. Patients With a Condition*/
+select * from Patients where conditions like 'DIAB1%' or conditions like '% DIAB1%'
