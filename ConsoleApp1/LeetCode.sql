@@ -108,3 +108,15 @@ from Tree
 where id not in (select distinct p_id from Tree where p_id is not null)
     and p_id is not null
 
+/*176. Second Highest Salary*/
+select DISTINCT max(salary) as SecondHighestSalary 
+from Employee 
+where salary < (Select max(salary) from Employee)
+
+SELECT
+    IFNULL(
+      (SELECT DISTINCT Salary
+       FROM Employee
+       ORDER BY Salary DESC
+        LIMIT 1 OFFSET 1),
+    NULL) AS SecondHighestSalary
