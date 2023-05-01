@@ -120,3 +120,7 @@ SELECT
        ORDER BY Salary DESC
         LIMIT 1 OFFSET 1),
     NULL) AS SecondHighestSalary
+
+/*176. Second Highest Salary*/
+select firstName, lastName, city, state 
+from Person left join Address using(personId)
