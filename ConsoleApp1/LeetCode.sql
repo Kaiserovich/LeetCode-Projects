@@ -1,4 +1,5 @@
-﻿/*595. Big Countries*/
+﻿/*Day 1 Select*/
+/*595. Big Countries*/
 select name, population, area from World where area >= 3000000 or population >= 25000000
 
 /*1757. Recyclable and Low Fat Products*/
@@ -10,6 +11,8 @@ select name from Customer where referee_id <> 2 or referee_id is null
 /*183. Customers Who Never Order*/
 select c.name as Customers from Customers c left join Orders o on c.id = o.customerId where o.customerId is null
 
+
+/*Day 2 Select & Order*/
 /*1873. Calculate Special Bonus*/
 select employee_id,
     case when name like 'M%' or employee_id %2 = 0 then 0 else salary
@@ -31,6 +34,8 @@ Delete p1
 from Person p1, Person p2 
 where p1.email = p2.email and p1.id > p2.id
 
+
+/*Day 3 String Processing Functions*/
 /*1667. Fix Names in a Table*/
 select user_id, concat(upper(substr(Users.name, 1, 1)), lower(substr(Users.name, 2))) as name
 from Users
@@ -45,6 +50,8 @@ order by sell_date
 /*1527. Patients With a Condition*/
 select * from Patients where conditions like 'DIAB1%' or conditions like '% DIAB1%'
 
+
+/*Day 4 Union & Select*/
 /*1965. Employees With Missing Information*/
 select T.employee_id
 from 
@@ -121,6 +128,14 @@ SELECT
         LIMIT 1 OFFSET 1),
     NULL) AS SecondHighestSalary
 
-/*176. Second Highest Salary*/
+
+/*Day 5 Union*/
+/*175. Combine Two Tables*/
 select firstName, lastName, city, state 
 from Person left join Address using(personId)
+
+/*1581. Customer Who Visited but Did Not Make Any Transactions*/
+select customer_id, count(customer_id) as count_no_trans   
+from Visits left join Transactions using(visit_id)
+where transaction_id  is null
+group by customer_id
