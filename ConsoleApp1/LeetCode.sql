@@ -14,13 +14,13 @@ select c.name as Customers from Customers c left join Orders o on c.id = o.custo
 
 /*Day 2 Select & Order*/
 /*1873. Calculate Special Bonus*/
+/*1*/
 select employee_id,
     case when name like 'M%' or employee_id %2 = 0 then 0 else salary
     end as bonus
 from Employees
 order by employee_id;
-
-
+/*2*/
 select employee_id, salary * (employee_id%2) * (name not like 'M%') as bonus
 from Employees
 order by employee_id;
@@ -53,6 +53,7 @@ select * from Patients where conditions like 'DIAB1%' or conditions like '% DIAB
 
 /*Day 4 Union & Select*/
 /*1965. Employees With Missing Information*/
+/*1*/
 select T.employee_id
 from 
   (select * from Employees left join Salaries using(employee_id)
@@ -61,12 +62,9 @@ from
 as T
 where T.salary is null or T.name is null
 order by T.employee_id
-
-
+/*1*/
 select employee_id from Employees where employee_id not in (select employee_id from Salaries)
-
 union
-
 select employee_id from Salaries where employee_id not in (select employee_id from Employees)
 order by employee_id
 
@@ -88,6 +86,7 @@ from Products
 where store3 is not null
 
 /*608. Tree Node*/
+/*1*/
 select id, 
     case
         when p_id is null then 'Root'
@@ -95,8 +94,7 @@ select id,
         else 'Leaf'
     end as type
 from Tree
-
-
+/*2*/
 select id, 'Root' as Type
 from Tree
 where p_id is null
@@ -116,10 +114,11 @@ where id not in (select distinct p_id from Tree where p_id is not null)
     and p_id is not null
 
 /*176. Second Highest Salary*/
+/*1*/
 select DISTINCT max(salary) as SecondHighestSalary 
 from Employee 
 where salary < (Select max(salary) from Employee)
-
+/*2*/
 SELECT
     IFNULL(
       (SELECT DISTINCT Salary
@@ -139,3 +138,14 @@ select customer_id, count(customer_id) as count_no_trans
 from Visits left join Transactions using(visit_id)
 where transaction_id  is null
 group by customer_id
+
+/*1148. Article Views I*/
+/*1*/
+select author_id as id from Views 
+where author_id = viewer_id 
+group by id
+order by id
+/*2*/
+select distinct author_id as id from Views 
+where author_id = viewer_id 
+order by id
