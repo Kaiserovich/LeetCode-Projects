@@ -149,3 +149,15 @@ order by id
 select distinct author_id as id from Views 
 where author_id = viewer_id 
 order by id
+
+
+/*Day 6 Union*/
+/*197. Rising Temperature*/
+/*1*/
+select Weather.id from Weather 
+join Weather w on DATEDIFF(Weather.recordDate, w.recordDate) = 1 
+and Weather.Temperature  > w.Temperature 
+/*2*/
+select Weather.id from Weather 
+join Weather w on Weather.recordDate = DATE_ADD(w.recordDate, interval 1 day) 
+where Weather.Temperature  > w.Temperature 
