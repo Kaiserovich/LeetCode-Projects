@@ -161,3 +161,13 @@ and Weather.Temperature  > w.Temperature
 select Weather.id from Weather 
 join Weather w on Weather.recordDate = DATE_ADD(w.recordDate, interval 1 day) 
 where Weather.Temperature  > w.Temperature 
+
+/*607. Sales Person*/
+select s.Name 
+from SalesPerson s 
+where s.sales_id not in (
+  select o.sales_id 
+  from Orders o
+  left join Company c using(com_id)
+  where c.name like 'RED'
+)
