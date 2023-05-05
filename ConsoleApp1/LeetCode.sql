@@ -188,3 +188,11 @@ group by date_id, make_name
 select user_id, count(distinct follower_id) as followers_count  
 from Followers 
 group by user_id
+
+/*Day 8 Function*/
+/*586. Customer Placing the Largest Number of Orders*/
+select customer_number  
+from Orders  
+group by customer_number 
+order by count(*) desc 
+limit 1
