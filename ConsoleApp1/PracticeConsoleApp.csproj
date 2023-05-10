@@ -59,7 +59,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LeetCode.sql" />
+    <Content Include="SQL_50.sql" />
+    <Content Include="SQL_I.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
