@@ -19,3 +19,6 @@ group by a.machine_id
 select machine_id, round(sum(case when activity_type = 'end' then timestamp else -timestamp end)/count(distinct process_id), 3) as processing_time
 from Activity
 group by machine_id 
+
+/*577. Employee Bonus*/
+select name, bonus from Employee left join Bonus using(empId) where bonus is null or bonus < 1000
