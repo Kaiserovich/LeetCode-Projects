@@ -30,8 +30,8 @@ left join Examinations ex using(subject_name,student_id)
 group by student_id, subject_name
 order by student_id, subject_name
 
-/*570. Managers with at Least 5 Direct Reports/
-/*1/
+/*570. Managers with at Least 5 Direct Reports*/
+/*1*/
 select name
 from Employee e1 
 join (select ManagerId 
@@ -39,6 +39,18 @@ join (select ManagerId
   group by ManagerId
   having count(ManagerId) >= 5) as e2
 on e1.Id = e2.ManagerId
-/*2/
+/*2*/
 select name from Employee where id in
 (select managerId from Employee group by managerId having count(managerId) > 4)
+
+/*1934. Confirmation Rate*/
+/*1*/
+select user_id, round(avg(if(action = 'confirmed', 1, 0)),2) as confirmation_rate 
+from Signups s
+left join Confirmations using(user_id)
+group by user_id
+/*2*/
+select user_id, round(avg(case when action = 'confirmed' then 1 else 0 end),2) as confirmation_rate 
+from Signups s
+left join Confirmations using(user_id)
+group by user_id
