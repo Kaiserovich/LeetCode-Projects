@@ -22,3 +22,11 @@ group by machine_id
 
 /*577. Employee Bonus*/
 select name, bonus from Employee left join Bonus using(empId) where bonus is null or bonus < 1000
+
+/*1280. Students and Examinations*/
+select student_id, student_name, subject_name, count(ex.student_id) as attended_exams from Subjects
+cross join Students
+left join Examinations ex using(subject_name,student_id)
+group by student_id, subject_name
+order by student_id, subject_name
+
