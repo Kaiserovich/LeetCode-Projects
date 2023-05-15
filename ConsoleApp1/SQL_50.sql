@@ -30,3 +30,15 @@ left join Examinations ex using(subject_name,student_id)
 group by student_id, subject_name
 order by student_id, subject_name
 
+/*570. Managers with at Least 5 Direct Reports/
+/*1/
+select name
+from Employee e1 
+join (select ManagerId 
+  from Employee
+  group by ManagerId
+  having count(ManagerId) >= 5) as e2
+on e1.Id = e2.ManagerId
+/*2/
+select name from Employee where id in
+(select managerId from Employee group by managerId having count(managerId) > 4)
