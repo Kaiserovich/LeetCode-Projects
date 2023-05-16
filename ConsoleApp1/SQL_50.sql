@@ -61,3 +61,16 @@ group by user_id
 select * from cinema where id % 2 = 1 and description not like '%boring%' order by rating desc
 /*2*/
 select * from cinema where mod(id,2) = 1 and description != 'boring' order by rating desc
+
+/*1251. Average Selling Price*/
+/*1*/
+select p.product_id, round(sum(price*units)/sum(units),2)  as average_price  
+from Prices p join UnitsSold u 
+on p.product_id = u.product_id and start_date <= purchase_date and end_date >= purchase_date
+group by p.product_id
+/*2*/
+select p.product_id, round(sum(price*units)/sum(units),2)  as average_price  
+from Prices p join UnitsSold u 
+	on p.product_id = u.product_id 
+	and purchase_date between start_date and end_date
+group by p.product_id
