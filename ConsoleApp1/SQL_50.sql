@@ -54,3 +54,10 @@ select user_id, round(avg(case when action = 'confirmed' then 1 else 0 end),2) a
 from Signups s
 left join Confirmations using(user_id)
 group by user_id
+
+/*Basic Aggregate Functions*/
+/*620. Not Boring Movies*/
+/*1*/
+select * from cinema where id % 2 = 1 and description not like '%boring%' order by rating desc
+/*2*/
+select * from cinema where mod(id,2) = 1 and description != 'boring' order by rating desc
