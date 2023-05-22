@@ -79,4 +79,10 @@ group by p.product_id
 select project_id, round(sum(experience_years)/count(employee_id),2) as average_years   
 from Project 
 join Employee using(employee_id) 
-group by project_id  
+group by project_id 
+
+/*1633. Percentage of Users Attended a Contest*/
+select contest_id, round(count(user_id)/(select count(user_id) from Users)*100,2)  as percentage 
+from Register 
+group by contest_id
+order by percentage desc, contest_id     
