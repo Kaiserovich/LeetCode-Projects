@@ -48,12 +48,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TaskForTestingGeoinformationSystems.cs" />
+    <Compile Include="TaskForTestingITSolutionsManagementInternational - Copy.cs" />
     <Compile Include="Tinkoff.cs" />
     <Compile Include="Kata.cs" />
     <Compile Include="KataWithoutTests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskForTestingITSolutionsManagementInternational.cs" />
+    <Compile Include="TaskForTestingCentaurea.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
