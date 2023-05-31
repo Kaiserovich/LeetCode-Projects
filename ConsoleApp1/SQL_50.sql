@@ -91,3 +91,23 @@ order by percentage desc, contest_id
 select query_name, round(AVG(rating / position ),2) as quality, round(AVG(rating<3)*100,2) as poor_query_percentage  
 from Queries 
 group by query_name
+
+/*1193. Monthly Transactions I*/
+/*1*/
+select LEFT(trans_date, 7) as month, 
+  country, 
+  count(state) as trans_count, 
+  sum(state = "approved") as approved_count,
+  sum(amount) as trans_total_amount,
+  sum(case when state = 'approved' then amount else 0 end) as approved_total_amount
+from Transactions 
+group by month, country
+/*2*/
+select DATE_FORMAT(trans_date, '%Y-%m') AS month,
+  country, 
+  count(state) as trans_count, 
+  sum(if (state = 'approved',  1, 0)) as approved_count,
+  sum(amount) as trans_total_amount,
+  sum(if (state = 'approved',  amount, 0)) as approved_total_amount
+from Transactions 
+group by month, country
