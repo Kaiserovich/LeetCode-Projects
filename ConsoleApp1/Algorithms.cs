@@ -44,6 +44,20 @@ namespace ConsoleApp1
                 return RecursiveBinarySearch(mass, center + 1, rightBorder, x);
         }
 
+        int[] SelectionSort(int[] mass) {
+            for (int i = 0; i < mass.Length - 1; i++)
+            {
+                int smallest = i;
 
+                for (int j = 0; j < mass.Length; j++)
+                    if (mass[j] < mass[smallest])
+                        smallest = j;
+
+                int temp = mass[i];
+                mass[i] = mass[smallest];
+                mass[smallest] = temp;
+            }
+            return mass;
+        }
     }
 }
