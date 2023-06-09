@@ -17,3 +17,7 @@ var createHelloWorld = function () {
     }
 };
 
+/*2621. Sleep*/
+async function sleep(millis) {
+    new Promise(resolve => setTimeout(resolve, millis));
+}
